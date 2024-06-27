@@ -83,3 +83,11 @@ export async function deleteTodo(id: number, userId: number): Promise<void> {
     },
   });
 }
+
+export async function deleteAllTodos(userId: number): Promise<void> {
+  await prisma.todo.deleteMany({
+    where: {
+      userId,
+    },
+  });
+}
